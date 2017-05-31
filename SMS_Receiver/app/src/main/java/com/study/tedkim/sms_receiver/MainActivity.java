@@ -104,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     break;
             }
+
+            tvCount.setText(mDataSet.size()+"");
             mAdapter.notifyDataSetChanged();
         }
     }
