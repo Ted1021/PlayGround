@@ -1,8 +1,8 @@
 package com.study.tedkim.sms_receiver;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +14,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
     static final int SUCCESS = 1;
     static final int FAIL = -1;
+
+    int itemIndex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = getIntent();
         String sender = intent.getStringExtra("EDIT_SENDER");
         String date = intent.getStringExtra("EDIT_DATE");
-        String contents = intent.getStringExtra("EDIT_CONTENT");
+        String contents = intent.getStringExtra("EDIT_CONTENTS");
+        itemIndex = intent.getIntExtra("EDIT_INDEX", -1);
 
         etSender.setText(sender);
         etDate.setText(date);
@@ -64,9 +67,11 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 String date = etDate.getText().toString();
                 String contents = etContents.getText().toString();
 
-                intent.putExtra("NEW_SENDER", sender);
-                intent.putExtra("NEW_DATE", date);
-                intent.putExtra("NEW_CONTENTS", contents);
+
+                intent.putExtra("EDIT_SENDER", sender);
+                intent.putExtra("EDIT_DATE", date);
+                intent.putExtra("EDIT_CONTENTS", contents);
+                intent.putExtra("EDIT_INDEX", itemIndex);
 
                 setResult(SUCCESS, intent);
 

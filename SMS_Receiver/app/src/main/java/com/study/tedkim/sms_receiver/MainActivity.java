@@ -34,16 +34,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setRecyclerView();
     }
 
-    public void initView(){
+    public void initView() {
 
         tvCount = (TextView) findViewById(R.id.textView_count);
-        tvCount.setText(mDataSet.size()+"");
+        tvCount.setText(mDataSet.size() + "");
 
         btnNewMsg = (Button) findViewById(R.id.button_newMessage);
         btnNewMsg.setOnClickListener(this);
     }
 
-    public void setRecyclerView(){
+    public void setRecyclerView() {
 
         mAdapter = new MsgAdapter(this, R.layout.message_item, mDataSet);
 
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
 
-        switch(v.getId()){
+        switch (v.getId()) {
 
             case R.id.button_newMessage:
 
@@ -73,46 +73,46 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Intent intent;
         MsgItem item;
 
-        switch(requestCode){
+        if (resultCode == 1) {
+            switch (requestCode) {
 
-            case NEW_MSG:
+                case NEW_MSG:
 
-                intent = getIntent();
-                item = new MsgItem();
+                    item = new MsgItem();
 
-                item.writer = intent.getStringExtra("NEW_SENDER");
-                item.date = intent.getStringExtra("NEW_DATE");
-                item.contents = intent.getStringExtra("NEW_CONTENTS");
+                    item.writer = data.getStringExtra("NEW_SENDER");
+                    item.date = data.getStringExtra("NEW_DATE");
+                    item.contents = data.getStringExtra("NEW_CONTENTS");
 
-                mDataSet.add(item);
+                    mDataSet.add(item);
 
-                break;
+                    break;
 
-            case EDIT_MSG:
+                case EDIT_MSG:
 
-                intent = getIntent();
-                item = new MsgItem();
+                    int index = data.getIntExtra("EDIT_INDEX", -1);
+                    if(index == -1)
+                        return;
 
-                item.writer = intent.getStringExtra("EDIT_SENDER");
-                item.date = intent.getStringExtra("EDIT_DATE");
-                item.contents = intent.getStringExtra("EDIT_CONTENTS");
+                    item = mDataSet.get(index);
 
-                mDataSet.add(item);
+                    item.writer = data.getStringExtra("EDIT_SENDER");
+                    item.date = data.getStringExtra("EDIT_DATE");
+                    item.contents = data.getStringExtra("EDIT_CONTENTS");
 
-                break;
+                    break;
+            }
+            mAdapter.notifyDataSetChanged();
         }
-
-        mAdapter.notifyDataSetChanged();
     }
 
-    public void initData(){
+    public void initData() {
 
         MsgArchive data = new MsgArchive();
 
-        for(int i=0; i<20; i++){
+        for (int i = 0; i < 20; i++) {
 
             MsgItem item = new MsgItem();
 

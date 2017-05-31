@@ -59,9 +59,10 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.MsgViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(MsgViewHolder holder, int position) {
+    public void onBindViewHolder(MsgViewHolder holder, final int position) {
 
         MsgItem item = mDataSet.get(position);
+
         final String sender = item.writer;
         final String date = item.date;
         final String contents = item.contents;
@@ -69,8 +70,10 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.MsgViewHolder> {
         holder.tvSender.setText(sender);
         holder.tvDate.setText(date);
 
-        if (contents.length() > 20)
-            holder.tvContents.setText(contents.substring(0, 10)+" ...");
+        if (contents.length() > 20) {
+            String temp = contents.substring(0, 10);
+            holder.tvContents.setText(temp+"...");
+        }
         else
             holder.tvContents.setText(contents);
 
@@ -81,6 +84,7 @@ public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.MsgViewHolder> {
 
                 Intent intent = new Intent(mContext, EditActivity.class);
 
+                intent.putExtra("EDIT_INDEX", position);
                 intent.putExtra("EDIT_SENDER", sender);
                 intent.putExtra("EDIT_DATE", date);
                 intent.putExtra("EDIT_CONTENTS", contents);
