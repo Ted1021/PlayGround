@@ -47,13 +47,14 @@ public class CustomerActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+    // TODO - 여길 SQLite 로!
     public void initDataSet(){
 
         for(int i=0; i<20; i++){
             CustomerItem item = new CustomerItem();
 
             item.name = i+97+"";
-            item.age = 20+i+"";
+            item.age = 20+i;
             item.address = "asdasd";
             item.tel = "010"+i+"3"+i+"7"+"1234";
 
