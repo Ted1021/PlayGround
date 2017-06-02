@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         tvUserName = (TextView) findViewById(R.id.textView_userName);
         Intent intent_SignIn = getIntent();
-        String userName = intent_SignIn.getStringExtra("name");
+        String userName = intent_SignIn.getStringExtra("USER_ID");
         tvUserName.setText(userName);
 
 
