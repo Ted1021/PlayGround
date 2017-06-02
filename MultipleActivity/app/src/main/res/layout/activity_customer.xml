@@ -7,7 +7,7 @@
 
     android:orientation="vertical"
 
-    tools:context="com.study.tedkim.multipleactivity.CustomerActivity"
+    tools:context="com.study.tedkim.multipleactivity.Customer.CustomerActivity"
     android:padding="8dp">
 
     <LinearLayout
@@ -51,10 +51,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
             android:id="@+id/editText_name"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:hint="Input customer's name" />
 
         <Button
             android:text="add"

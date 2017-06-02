@@ -11,7 +11,7 @@
 
     android:orientation="vertical"
 
-    tools:context="com.study.tedkim.multipleactivity.MainActivity">
+    tools:context="com.study.tedkim.multipleactivity.Menu.MainActivity">
 
     <LinearLayout
         android:orientation="horizontal"

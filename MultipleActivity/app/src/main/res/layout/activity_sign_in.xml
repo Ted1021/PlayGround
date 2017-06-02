@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.study.tedkim.multipleactivity.SignInActivity"
+    tools:context="com.study.tedkim.multipleactivity.LogIn.SignInActivity"
     android:padding="8dp">
 
     <LinearLayout
@@ -62,7 +62,8 @@
                 android:ems="10"
                 android:id="@+id/editText_pw"
                 android:layout_weight="1"
-                android:hint="put 8 numbers" />
+                android:hint="password"
+                android:password="true" />
 
         </LinearLayout>
 
