@@ -70,17 +70,34 @@ public class CustomerHelper extends SQLiteOpenHelper {
         close();
     }
 
-    public void updateData(int index) {
+    public void updateData(int index, String eng) {
 
+        String query = "UPDATE customer SET eng = '"+ eng +"' WHERE customer_id = '"+ index +"';";
 
+        mDB = getWritableDatabase();
+        mDB.execSQL(query);
+
+        this.close();
     }
 
     public void deleteData() {
 
         String query = "DELETE FROM customer;";
+
         mDB = getWritableDatabase();
         mDB.execSQL(query);
 
+        this.close();
+
+    }
+
+    public void deleteData(String eng){
+
+        String query = "DELETE FROM customer WHERE eng = '"+ eng +"';";
+        mDB = getWritableDatabase();
+        mDB.execSQL(query);
+
+        this.close();
     }
 
     public ArrayList<CustomerItem> selectData() {
@@ -108,6 +125,10 @@ public class CustomerHelper extends SQLiteOpenHelper {
 
             mDataSet.add(item);
         }
+
+        this.close();
+
         return mDataSet;
+
     }
 }

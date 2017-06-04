@@ -54,7 +54,8 @@ public class CustomListAdapter extends BaseAdapter {
         }
 
         TextView tvName, tvAge, tvAddress, tvTel;
-        String name, age, address, tel;
+        String name, address, tel;
+        int age;
 
         name = mDataSet.get(position).name;
         age = mDataSet.get(position).age;
