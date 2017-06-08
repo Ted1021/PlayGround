@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TextView</string>
+    <string name="android_inside">안드로이드 사이드 http://www.androidside.com</string>
 </resources>

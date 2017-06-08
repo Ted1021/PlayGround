@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public void initView(){
 
         tvBasic = (TextView) findViewById(R.id.textView_basic);
-        
+        tvBasic.setText(R.string.android_inside);
 
     }
 }
