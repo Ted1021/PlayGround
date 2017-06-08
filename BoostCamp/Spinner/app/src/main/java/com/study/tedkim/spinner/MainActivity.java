@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements Spinner.OnItemSel
 
     String[] mPlanetDataset;
     String[] mCityDataset;
-    String mTestString;=
+    String mTestString;
 
     Button btnChange;
 
