@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RadioButton radioButton;
 
     TextView tvResult;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tvResult.setText("toggleButton is Activated !");
                     toggleButton.setActivated(true);
                 } else {
-                    tvResult.setText("toggleButton is diactivated !");
+                    tvResult.setText("toggleButton is deactivated !");
                     toggleButton.setActivated(false);
                 }
 
@@ -105,24 +105,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     tvResult.setText("switch is activated !");
                     aSwitch.setActivated(true);
                 } else {
-                    tvResult.setText("switch is diactivated !");
+                    tvResult.setText("switch is deactivated !");
                     aSwitch.setActivated(false);
                 }
 
                 break;
 
+            // 라디오 버튼은 check 관련 메소드가 작동하지 않는다
+            // TODO - need to implement deactivating radioButton on activate state
             case R.id.radioButton:
 
-                if(!radioButton.isActivated()){
-                    tvResult.setText("radio button is activated");
-                    radioButton.setActivated(true);
-                }
-                else{
-                    tvResult.setText("radio button is diactivated !");
-                    radioButton.setActivated(false);
-                }
+                tvResult.setText("radio button is activated");
+                radioButton.setActivated(true);
 
                 break;
+
+            case R.id.radioButton2:
+
+                tvResult.setText("radio button 2 is activated");
+                radioButton.setActivated(true);
+
+                break;
+
+            case R.id.radioButton3:
+
+                tvResult.setText("radio button 3 is activated");
+                radioButton.setActivated(true);
+
+                break;
+
 
         }
     }
