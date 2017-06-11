@@ -1,6 +1,7 @@
 package com.study.tedkim.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,6 +17,11 @@ public class ImplicitActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_implicit);
 
         initView();
+
+        Intent intent = getIntent();
+        intent.putExtra("NAME", "Implicit Activity");
+        setResult(RESULT_OK, intent);
+
     }
 
     public void initView(){
@@ -39,19 +45,23 @@ public class ImplicitActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.button_dial:
 
-                intent = new Intent();
+                intent = new Intent(Intent.ACTION_DIAL);
+                startActivity(intent);
 
                 break;
 
             case R.id.button_contact:
 
-                intent = new Intent();
+                intent = new Intent(Intent.ACTION_PICK);
+                intent.setData(Uri.parse("content://contacts/phones"));
+                startActivity(intent);
 
                 break;
 
             case R.id.button_gallery:
 
                 intent = new Intent();
+
 
                 break;
 
