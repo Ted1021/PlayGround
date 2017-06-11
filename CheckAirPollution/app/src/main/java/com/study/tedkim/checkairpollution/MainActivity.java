@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Double> mPollutionList = new ArrayList<>();
 
+    static final String API_URL = "http://openAPI.seoul.go.kr:8088/" + "4449524f656b696d31333566664a7165" + "/json/DailyAverageAirQuality/1/1/20170610/";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 mLocation = (String) parent.getItemAtPosition(position);
 
-                String request = R.string.API_URL + R.string.AUTH_KEY + "/json/DailyAverageAirQuality/1/1" + R.string.DATE + "/" + mLocation;
+                String request = API_URL + mLocation;
                 getPollutionInfo(request);
 
             }
