@@ -23,6 +23,13 @@
         android:id="@+id/spinner_location"
         android:entries="@array/lab_location"/>
 
+    <Button
+        android:text="Pick Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_pickDate"
+        style="@style/Widget.AppCompat.Button.Borderless" />
+
     <TextView
         android:text="2017년 06월 10일 대기농도"
         android:layout_width="match_parent"
