@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">CheckAirPollution</string>
+    <string name="AUTH_KEY">4449524f656b696d31333566664a7165</string>
+    <string name="API_URL">http://openAPI.seoul.go.kr:8088/</string>
+    <string name="DATE">20170610</string>
+    <string name="SAMPLE_DATA">http://openAPI.seoul.go.kr:8088/(인증키)/json/DailyAverageAirQuality/1/5/20130228/강변북로</string>
+
+</resources>

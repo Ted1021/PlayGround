@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="lab_location">
+        <item>강남구</item>
+        <item>강남대로</item>
+        <item>강동구</item>
+        <item>강변북로</item>
+        <item>강북구</item>
+    </string-array>
+</resources>
