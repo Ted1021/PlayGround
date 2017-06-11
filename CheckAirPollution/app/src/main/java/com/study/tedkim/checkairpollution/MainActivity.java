@@ -3,6 +3,7 @@ package com.study.tedkim.checkairpollution;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                         String json = "";
 
                         json = getJsonData(connection);
+                        Log.e("CHECK_JSON", ">>>>>>>>>>>>>>"+json);
 
                         getAirConditionData(json);
 
@@ -199,6 +201,11 @@ public class MainActivity extends AppCompatActivity {
 
             double pm25 = pollutionInfo.getDouble("PM25");
             mPollutionList.add(pm25);
+
+            for(double data : mPollutionList){
+
+                Log.e("CHECK_DATA", "--------------- "+data+"");
+            }
 
         }catch(Exception e){
             e.printStackTrace();
