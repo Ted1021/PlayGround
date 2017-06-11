@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     static final int PM10 = 4;
     static final int PM25 = 5;
 
-    ArrayList<Double> mPollutionList = new ArrayList<>();
+    ArrayList<Double> mPollutionList;
 
     static final String API_URL = "http://openAPI.seoul.go.kr:8088/" + "4449524f656b696d31333566664a7165" + "/json/DailyAverageAirQuality/1/1/20170610/";
 
@@ -180,11 +180,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void getAirConditionData(String json){
 
+        mPollutionList = new ArrayList<>();
+
         try {
 
             JSONObject airConditionData = new JSONObject(json);
-            JSONArray rowData = airConditionData.getJSONArray("row");
-            JSONObject pollutionInfo = rowData.getJSONObject(0);
+            JSONObject dailyAverageAirQuality = airConditionData.getJSONObject("DailyAverageAirQuality");
+            JSONArray row = dailyAverageAirQuality.getJSONArray("row");
+            JSONObject pollutionInfo = row.getJSONObject(0);
 
             double no2 = pollutionInfo.getDouble("NO2");
             mPollutionList.add(no2);
