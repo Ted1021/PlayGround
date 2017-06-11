@@ -106,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
 
                         getAirConditionData(json);
 
+                        publishProgress();
+
                     }
                 }catch(Exception e){
 
